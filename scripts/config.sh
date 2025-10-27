@@ -41,14 +41,13 @@ function install_ros_packages() {
     local ros_packages=(
         "ros-${TARGET_ROS_VERSION}-desktop-full"
         "ros-${TARGET_ROS_VERSION}-motion-capture-tracking"
-        "ros-${TARGET_ROS_VERSION}-crazyflie"
-        "ros-${TARGET_ROS_VERSION}-crazyflie-dbgsym"
-        "ros-${TARGET_ROS_VERSION}-crazyflie-examples"
-        "ros-${TARGET_ROS_VERSION}-crazyflie-interfaces"
-        "ros-${TARGET_ROS_VERSION}-crazyflie-interfaces-dbgsym"
-        "ros-${TARGET_ROS_VERSION}-crazyflie-py"
-        "ros-${TARGET_ROS_VERSION}-crazyflie-sim"
         "ros-${TARGET_ROS_VERSION}-turtlebot3"
+        "ros-${TARGET_ROS_VERSION}-velodyne*"
+        "ros-${TARGET_ROS_VERSION}-pcl-ros"
+        "ros-${TARGET_ROS_VERSION}-tf2-ros"
+        "ros-${TARGET_ROS_VERSION}-rviz2"
+        "ros-${TARGET_ROS_VERSION}-depthai-ros"
+        "ros-${TARGET_ROS_VERSION}-glim-ros"
         "ros-dev-tools"
     )
 
@@ -58,7 +57,7 @@ function install_ros_packages() {
         else
             echo "Skipping unavailable ROS package $pkg"
         fi
-    done
+    done    
 }
 
 # The Ubuntu Mirror URL. It's better to change for faster download.
@@ -94,21 +93,31 @@ function customize_image() {
     # install graphics and desktop
     apt-get install -y \
         plymouth-themes \
-        ubuntu-gnome-desktop \
-        ubuntu-gnome-wallpapers
+        kubuntu-desktop
 
     # useful tools
     apt-get install -y \
         clamav-daemon \
         terminator \
         tilix \
-        emacs \
         apt-transport-https \
         curl \
         vim \
+        neovim \
+        parallel \
         git \
         nano \
-        less
+        less \
+        code
+
+    # Other Imprimis Dependencies
+    apt get install -y \
+        libgtsam-points-dev \
+        libiridescence-dev \
+        libboost-all-dev \
+        libglfw3-dev \
+        libmetis-dev
+
 
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
