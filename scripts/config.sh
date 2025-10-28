@@ -93,7 +93,8 @@ function customize_image() {
     # install graphics and desktop
     apt-get install -y \
         plymouth-themes \
-        kubuntu-desktop
+        ubuntu-gnome-desktop \
+        ubuntu-gnome-wallpapers
 
     # useful tools
     apt-get install -y \
