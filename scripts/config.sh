@@ -103,20 +103,18 @@ function customize_image() {
         apt-transport-https \
         curl \
         vim \
-        neovim \
         parallel \
         git \
         nano \
-        less \
-        code
+        less
 
     # Other Imprimis Dependencies
-    apt get install -y \
-        libgtsam-points-dev \
-        libiridescence-dev \
-        libboost-all-dev \
-        libglfw3-dev \
-        libmetis-dev
+    # apt get install -y \
+    #     libgtsam-points-dev \
+    #     libiridescence-dev \
+    #     libboost-all-dev \
+    #     libglfw3-dev \
+    #     libmetis-dev
 
 
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
