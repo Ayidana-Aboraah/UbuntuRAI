@@ -40,11 +40,10 @@ function add_ros_repository() {
 function install_ros_packages() {
     local ros_packages=(
         "ros-${TARGET_ROS_VERSION}-desktop-full"
-        "ros-${TARGET_ROS_VERSION}-motion-capture-tracking"
         "ros-${TARGET_ROS_VERSION}-turtlebot3"
         "ros-${TARGET_ROS_VERSION}-velodyne*"
         "ros-${TARGET_ROS_VERSION}-pcl-ros"
-        "ros-${TARGET_ROS_VERSION}-tf2-ros"
+        # "ros-${TARGET_ROS_VERSION}-tf2-ros"
         "ros-${TARGET_ROS_VERSION}-rviz2"
         "ros-${TARGET_ROS_VERSION}-depthai-ros"
         "ros-${TARGET_ROS_VERSION}-glim-ros"
